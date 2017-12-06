@@ -1,3 +1,2 @@
-# Advent-Of-Code
-My solutions to the problems from the Advent of Code website 2015 
-http://adventofcode.com/
+# AdventOfCode2015
+My solutions to the problems from the 2015 [Advent of Code Website](http://adventofcode.com/2015)
