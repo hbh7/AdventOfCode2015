@@ -1,41 +1,29 @@
-filePointer = open('input.txt','r')
+filePointer = open('input.txt', 'r')
 seed = filePointer.read()
 
 x = 0
 y = 0
-housesVisited = ['0,0']
-housesVisitedMoreThanOnce = 0
+housesVisited = set()
+housesVisited.add("0,0")
 
 for char in seed:
     if char == "^":
-        y = y+1
+        y = y + 1
     elif char == "v":
-        y = y-1
+        y = y - 1
     elif char == ">":
-        x = x+1
+        x = x + 1
     elif char == "<":
-        x = x-1
-    else:
-        print ("Wat. Ignoring")
-        continue
+        x = x - 1
 
     xstr = str(x)
     ystr = str(y)
     coord = xstr + "," + ystr
-    housesVisited.append(coord)
 
-    print ("Current Pos:", x, y)
+    # Comment the following line for reduced output
+    print("Current Pos:", coord)
 
-print (housesVisited)
-new_list = list(housesVisited)
+    housesVisited.add(coord)
 
-for coord in housesVisited:
-    if housesVisited.count(coord) > 1: 
-        print ("House was visited more than once:", coord)
-        housesVisitedMoreThanOnce = housesVisitedMoreThanOnce + 1
-        print (housesVisited.count(coord))
-        while housesVisited.count(coord) > 0:
-            housesVisited.remove(coord)
-            print (housesVisited.count(coord))
+print("Number of houses visited:", len(housesVisited))
 
-print (housesVisitedMoreThanOnce)

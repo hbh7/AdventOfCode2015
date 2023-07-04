@@ -1,4 +1,4 @@
-filePointer = open('input.txt','r')
+filePointer = open('input.txt', 'r')
 seed = filePointer.read()
 
 allStrings = []
@@ -14,50 +14,37 @@ totalVowels = 0
 with open('input.txt') as f:
     allStrings = [x.strip('\n') for x in f.readlines()]
 
-print (allStrings)
-
 for item in allStrings:
     check1Pass = False
     check2Pass = False
     check3Pass = False
     totalVowels = 0
-    storedChar = ''    
+    storedChar = ''
 
-    print (item)
     # Vowel Check
-    #if 's' and 'd' in item:
     for char in item:
         if char == 'a' or char == 'e' or char == 'i' or char == 'o' or char == 'u':
-            print ("Found a vowel:", char)
             totalVowels = totalVowels + 1
-            print ("Total Vowels:", totalVowels)
-        if totalVowels >= 3: 
-            print ("Check 1 Passed")
+        if totalVowels >= 3:
             check1Pass = True
-            
+            break
+
     # 1 Repeated Letter Check
     for char in item:
-        print ("StoredChar:", storedChar, "CurrentChar:",char)
         if char == storedChar:
-            print ("Check 2 Passed")
-            check2Pass = True      
-        storedChar = char 
+            check2Pass = True
+            break
+        storedChar = char
 
-    # String Containment Check 
+    # String Containment Check
     if "ab" not in item:
         if "cd" not in item:
             if "pq" not in item:
                 if "xy" not in item:
-                    print ("Check 3 Passed")
                     check3Pass = True
-    
+
     # Check if string is nice or not
-    if check1Pass == True and check2Pass == True and check3Pass == True:
-        print ("This string passes all checks! It's nice!") 
+    if check1Pass is True and check2Pass is True and check3Pass is True:
         niceStrings = niceStrings + 1
 
-    
-
-print ("Total Nice Strings:",niceStrings)
-
-
+print("Total Nice Strings:", niceStrings)
